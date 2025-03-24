@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Lab4</title>
+       <style>
+        #mainPage{
+            background-color:orange;
+        }
+        .sections{
+            background-color:gray;
+            border: 7px solid black;
+            text-align:center;
+            width:35%;
+            padding:15px;
+            margin:46px;
+        }
+       </style>
+
+
+    </head>
+    <body id="mainPage">
+        <h1 id="primaryTitle">INST377 - Lab4</h1>
+        
+
+        <div class = "sections">
+            <form name="nameReturn" onsubmit="return greetings()">
+                <label for="nameEntered">Name:</label>
+                <input type="text" id="nameEntered" required>
+                <input type="submit" value="Alert Me!">
+            </form>
+        </div>
+        <div class = "sections">  
+            <button onclick="colorChange()">Change Color</button>
+        </div> 
+        <div class = "sections">
+            <form name="textTester" onsubmit="return textValidation()">
+                <label for="textScan">Text Tester:</label>
+                <input type="text" id="textScan" required>
+                <input type="submit" value="Validate Text">
+            </form> 
+        </div>
+        <div class = "sections">
+            <button onclick="textAddition()">Add Text</button>
+        </div>
+
+        <script type="text/javascript">
+            function greetings(){
+                alert('Hi ' + document.nameReturn.nameEntered.value)
+            }
+        </script>
+         <script type="text/javascript">
+            function colorChange(){
+               if( document.getElementById("mainPage").style.backgroundColor == "green"){
+               document.getElementById("mainPage").style.backgroundColor ="orange";
+               }else{
+                document.getElementById("mainPage").style.backgroundColor ="green";
+               }
+            }
+        </script>
+        <script type="text/javascript">
+            function textValidation(){
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+               if(validation.test(document.textTester.textScan.value)){
+               alert('There is at least one special character')
+               return false;
+               }
+            }
+        </script>
+        <script type="text/javascript">
+            function textAddition(){
+                document.getElementById("primaryTitle").insertAdjacentText('beforeend', " More Text")
+            }
+        </script>
+
+
+       
+    </body>
+</html>
